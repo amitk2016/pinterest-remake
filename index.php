@@ -5,8 +5,7 @@
 require 'vendor/autoload.php';
 
 
-// Create new Plates instance
-$plates = new League\Plates\Engine('app/templates');
+
 
 // Load Apporopriate Page
 
@@ -29,7 +28,8 @@ $plates = new League\Plates\Engine('app/templates');
  	//Homepage
  	case 'landing':
  	case 'register';	
- 	echo $plates-> render('landing');
+ 	 require 'app/controllers/LandingController.php';
+ 	 $controller = new LandingController();
  		break;
  	
  	// About Page
@@ -60,3 +60,6 @@ $plates = new League\Plates\Engine('app/templates');
  		break;
  	
  }
+
+
+ $controller->buildHTML();
